@@ -6,9 +6,7 @@ import Image from 'next/image';
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState<{ id: number; name: string; price: number; quantity: number }[]>(
-    []
-  );
+  const [cart, setCart] = useState<{ id: number; name: string; price: number; quantity: number }[]>([]);
   const [isPopupVisible, setIsPopupVisible] = useState(false); // Popup visibility state
   const [popupProduct, setPopupProduct] = useState<string>(''); // Product name for popup message
   const router = useRouter(); // For navigation to cart page
@@ -86,10 +84,12 @@ const ProductsPage = () => {
                     src={product.image}
                     alt={product.name}
                     className="object-cover h-full w-full transition-transform group-hover:scale-110"
+                    width={300}
+                    height={300}
                   />
                 ) : (
                   <span className="absolute inset-0 flex items-center justify-center text-gray-500 font-semibold">
-                    Can&apos;t Load Image
+                    Can't Load Image
                   </span>
                 )}
                 <div className="absolute top-4 right-4 bg-white text-indigo-600 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
